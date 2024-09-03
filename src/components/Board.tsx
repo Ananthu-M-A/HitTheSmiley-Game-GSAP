@@ -6,10 +6,8 @@ import { RootState } from '../redux/store';
 
 const Board: React.FC = () => {
     const [molePosition, setMolePosition] = useState<number | null>(null);
-    const [minutes, setMinutes] = useState<string>("00");
-    const [seconds, setSeconds] = useState<string>("00");
-    const [milliseconds, setMilliseconds] = useState<string>("00");
-    const scoreState = useSelector((state: RootState) => state.score.value)
+    const scoreState = useSelector((state: RootState) => state.score.value);
+    const timerState = useSelector((state: RootState) => state.timer.value);
 
     useEffect(() => {
         const updateMole = () => {
@@ -30,7 +28,7 @@ const Board: React.FC = () => {
     return (<div className='flex justify-center'>
         <div className="flex items-center justify-center px-10">
             <h1 className="text-2xl font-bold text-gray-900 bg-gray-400 p-4 rounded-lg">
-                {`${minutes} : ${seconds} : ${milliseconds}`}
+                {`${timerState}`}
             </h1>
         </div>
         <div id='board' className='w-1/2 bg-gray-700 grid grid-cols-4 text-center p-10 h-screen mx-auto'>
@@ -41,10 +39,10 @@ const Board: React.FC = () => {
         </div>
         <div className="flex items-center justify-center px-10 text-center">
             <h1 className="text-2xl font-bold text-gray-900 bg-gray-400 p-4 rounded-lg">
-                {`Score`}
-            <h1 className="text-2xl font-bold text-gray-900 bg-gray-400  rounded-lg">
-                {`${scoreState}`}
-            </h1>
+                SCORE
+                <h1 className="text-2xl font-bold text-gray-900 bg-gray-400  rounded-lg">
+                    {`${scoreState}`}
+                </h1>
             </h1>
         </div>
     </div>);

@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import dropdownReducer from './slices/dropDownSlice';
 import scoreReducer from './slices/scoreSlice';
+import timerReducer from './slices/timerSlice';
 
 export const store = configureStore({
   reducer: {
     dropdown: dropdownReducer,
-    score: scoreReducer
+    score: scoreReducer,
+    timer: timerReducer
   },
 });
 
