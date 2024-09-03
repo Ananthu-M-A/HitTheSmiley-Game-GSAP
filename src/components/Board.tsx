@@ -7,7 +7,7 @@ const Board = () => {
 
     useEffect(() => {
         const updateMole = () => {
-            const max = 1;
+            const max = 39;
             const randomNum = Math.floor(Math.random() * (max + 1));
             setMolePosition(randomNum);
 
@@ -21,14 +21,16 @@ const Board = () => {
         return () => clearInterval(moleTimer);
     }, []);
 
-    return (<>
-        <div id='board' className='bg-gray-700 grid grid-cols-10 text-center p-10 gap-10'>
-            {Array.from({ length: 40 }, (_, i) => (
-                <Hole key={i} holeNum={i} molePosition={molePosition} />
-            ))}
-        <Dropdown />
-        </div>
-    </>);
+    return (
+        <>
+            <div id='board' className='bg-gray-700 grid grid-cols-10 text-center p-10 gap-10'>
+                {Array.from({ length: 40 }, (_, i) => (
+                    <Hole key={i} holeNum={i} molePosition={molePosition} />
+                ))}
+                <Dropdown />
+            </div>
+        </>
+    );
 };
 
 export default Board;

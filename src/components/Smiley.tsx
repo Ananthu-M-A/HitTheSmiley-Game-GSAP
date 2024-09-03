@@ -16,9 +16,9 @@ const Smiley = ({ holeNum, molePosition }: SmileyProps) => {
         if (molePosition === holeNum && moleRef.current) {
             setShowShaking(false);
             setShowSmile(true);
-            gsap.fromTo(moleRef.current, { scale: 0 }, { scale: 1, duration: 0.3 });
+            gsap.fromTo(moleRef.current, { scale: 0, y: 50 }, { scale: 1, y: 0, duration: 0.3, ease: "bounce.out" });
             const timer = setTimeout(() => {
-                gsap.to(moleRef.current, { scale: 0, duration: 0.3 });
+                gsap.to(moleRef.current, { scale: 0, y: 50, duration: 0.3 });
             }, 1000);
 
             return () => clearTimeout(timer);
@@ -31,12 +31,16 @@ const Smiley = ({ holeNum, molePosition }: SmileyProps) => {
             setShowSmile(false);
             setShowShaking(true);
             gsap.to(smileyRef.current, {
-                duration: 10,
-                scale: 4,
+                duration: 1,
+                scale: 1.2,
+                rotate: 360,
+                repeat: 3,
+                ease: "elastic.out(1, 0.3)",
                 onComplete: () => {
                     setTimeout(() => {
                         setShowShaking(false);
-                    }, 10000);
+                        setShowSmile(true);
+                    }, 1000);
                 },
             });
         }
@@ -48,12 +52,12 @@ const Smiley = ({ holeNum, molePosition }: SmileyProps) => {
                 <>
                     {showSmile && (
                         <div ref={smileyRef} onClickCapture={hitSmiley} className="text-4xl cursor-pointer">
-                            <img src="/smile.gif" alt="Smiley" />
+                            <img src="/smile.gif" alt="Smiley" className="w-12 h-12 mx-auto" />
                         </div>
                     )}
                     {showShaking && (
                         <div className="text-4xl">
-                            <img src="/shaking.gif" alt="Shaking Smiley" />
+                            <img src="/shaking.gif" alt="Shaking Smiley" className="w-12 h-12 mx-auto" />
                         </div>
                     )}
                 </>
