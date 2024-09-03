@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import dropdownReducer from './slices/dropDownSlice';
+import scoreReducer from './slices/scoreSlice';
 
 export const store = configureStore({
   reducer: {
     dropdown: dropdownReducer,
+    score: scoreReducer
   },
 });
 

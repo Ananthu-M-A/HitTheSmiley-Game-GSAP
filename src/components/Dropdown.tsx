@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "../redux/store.ts"
 import { switchState } from "../redux/slices/dropDownSlice.ts";
 
-const Dropdown = () => {
+const Dropdown: React.FC = () => {
     const dropdownState = useSelector((state: RootState) => state.dropdown.value);
     const dispatch = useDispatch();
     return (<>

@@ -1,12 +1,12 @@
 import { useDispatch } from "react-redux"
 import { switchState } from "../redux/slices/dropDownSlice.ts";
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
   const dispatch = useDispatch();
   return (
     <div className='bg-gray-900 p-0 flex justify-between'>
       <div>
-        <h1 className="headig-font text-3xl font-bold p-3">Hit👊The😀Smiley</h1>
+        <h1 className="heading-font text-3xl font-bold p-3">Hit👊The😀Smiley</h1>
       </div>
       <div className="p-3">
         <button onClick={() => dispatch(switchState())}

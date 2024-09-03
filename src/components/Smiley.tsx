@@ -1,16 +1,19 @@
 import { MouseEvent, useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
+import { useDispatch } from 'react-redux';
+import { increaseScore } from '../redux/slices/scoreSlice';
 
 interface SmileyProps {
     holeNum: number;
     molePosition: number | null;
 }
 
-const Smiley = ({ holeNum, molePosition }: SmileyProps) => {
+const Smiley: React.FC<SmileyProps> = ({ holeNum, molePosition }) => {
     const moleRef = useRef<HTMLDivElement>(null);
     const smileyRef = useRef<HTMLDivElement>(null);
-    const [showSmile, setShowSmile] = useState(true);
-    const [showShaking, setShowShaking] = useState(false);
+    const [showSmile, setShowSmile] = useState<boolean>(true);
+    const [showShaking, setShowShaking] = useState<boolean>(false);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         if (molePosition === holeNum && moleRef.current) {
@@ -30,6 +33,7 @@ const Smiley = ({ holeNum, molePosition }: SmileyProps) => {
         if (molePosition === holeNum) {
             setShowSmile(false);
             setShowShaking(true);
+            dispatch(increaseScore());
             gsap.to(smileyRef.current, {
                 duration: 1,
                 scale: 1.2,
