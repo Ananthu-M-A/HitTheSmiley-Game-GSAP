@@ -1,27 +1,31 @@
 import { useEffect, useState } from 'react';
 import Hole from './Hole';
 import Dropdown from './Dropdown';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
+import { showOptions } from '../redux/slices/dropDownSlice';
 
 const Board: React.FC = () => {
     const [molePosition, setMolePosition] = useState<number | null>(null);
     const scoreState = useSelector((state: RootState) => state.score.value);
     const timerState = useSelector((state: RootState) => state.timer.value);
+    
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const updateMole = () => {
             const max = 15;
             const randomNum = Math.floor(Math.random() * (max + 1));
             setMolePosition(randomNum);
-
+            
             setTimeout(() => {
                 setMolePosition(null);
             }, 1000);
         };
-
+        
         const moleTimer = setInterval(updateMole, 2000);
-
+        dispatch(showOptions());
+        
         return () => clearInterval(moleTimer);
     }, []);
 

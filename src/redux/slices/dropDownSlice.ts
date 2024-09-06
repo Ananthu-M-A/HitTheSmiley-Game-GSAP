@@ -5,19 +5,22 @@ interface dropdownState {
 }
 
 const initialState: dropdownState = {
-  value: false,
+  value: true,
 };
 
 export const dropdownSlice = createSlice({
   name: 'dropdown',
   initialState,
   reducers: {
-    switchState: (state) => {
-      state.value = !state.value;
+    showOptions: (state) => {
+      state.value = true;
+    },
+    hideOptions: (state) => {
+      state.value = false;
     },
   },
 });
 
-export const { switchState } = dropdownSlice.actions;
+export const { showOptions, hideOptions } = dropdownSlice.actions;
 
 export default dropdownSlice.reducer;
