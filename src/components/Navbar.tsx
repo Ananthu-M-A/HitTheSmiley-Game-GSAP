@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { showOptions } from "../redux/slices/dropDownSlice.ts";
+import { showOptions } from "../redux/slices/dropdownSlice.ts";
 import { stopTimer } from "../redux/slices/timerSlice.ts";
 import { RootState } from "../redux/store.ts";
 import { hideGamer } from "../redux/slices/gamerSlice.ts";
@@ -7,6 +7,7 @@ import Dropdown from "./Dropdown.tsx";
 
 const Navbar: React.FC = () => {
   const gamerState = useSelector((state: RootState) => state.gamer.value);
+
   const dispatch = useDispatch();
 
   const dropDownOpen = () => {

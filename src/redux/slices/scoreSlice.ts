@@ -1,27 +1,38 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 interface scoreState {
-    value: number;
+    latest: number;
+    highest: number;
 }
 
 const initialState: scoreState = {
-    value: 0,
+    latest: 0,
+    highest: 0
 };
+
+const updateHighest = (newScore: number, score: scoreState) => {
+    if (newScore > score.highest) {
+        score.highest = newScore;
+    }
+}
 
 export const scoreSlice = createSlice({
     name: 'score',
     initialState,
     reducers: {
-        resetScore: (state) => {
-            state.value = 0;
+        resetScore: (score) => {
+            updateHighest(score.latest, score);
+            score.latest = 0;
         },
-        increaseScore: (state) => {
-            state.value = state.value + 5;
+        increaseScore: (score) => {
+            score.latest = score.latest + 5;
+            updateHighest(score.latest, score);
         },
-        decreaseScore: (state) => {
-            if ((state.value - 1) >= 0) {
-                state.value = state.value - 1;
+        decreaseScore: (score) => {
+            if ((score.latest - 1) >= 0) {
+                score.latest = score.latest - 1;
             }
+            updateHighest(score.latest, score);
         },
     },
 });

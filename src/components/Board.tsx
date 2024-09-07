@@ -3,29 +3,31 @@ import Hole from './Hole';
 import Dropdown from './Dropdown';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
-import { showOptions } from '../redux/slices/dropDownSlice';
+import { showOptions } from '../redux/slices/dropdownSlice';
+import { showProfile } from '../redux/slices/profileSlice';
 
 const Board: React.FC = () => {
     const [molePosition, setMolePosition] = useState<number | null>(null);
-    const scoreState = useSelector((state: RootState) => state.score.value);
-    const timerState = useSelector((state: RootState) => state.timer.value);
-    
+    const latestScore = useSelector((state: RootState) => state.score.latest);
+    const timerState = useSelector((state: RootState) => state.timer.time);
+
     const dispatch = useDispatch();
 
     useEffect(() => {
         const updateMole = () => {
-            const max = 15;
+            const max = 1;
             const randomNum = Math.floor(Math.random() * (max + 1));
             setMolePosition(randomNum);
-            
+
             setTimeout(() => {
                 setMolePosition(null);
             }, 1000);
         };
-        
+
         const moleTimer = setInterval(updateMole, 2000);
         dispatch(showOptions());
-        
+        dispatch(showProfile());
+
         return () => clearInterval(moleTimer);
     }, []);
 
@@ -45,7 +47,7 @@ const Board: React.FC = () => {
             <h1 className="text-2xl font-bold text-gray-900 bg-gray-400 p-4 rounded-lg">
                 SCORE
                 <h1 className="text-2xl font-bold text-gray-900 bg-gray-400  rounded-lg">
-                    {`${scoreState}`}
+                    {`${latestScore}`}
                 </h1>
             </h1>
         </div>

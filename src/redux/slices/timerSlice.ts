@@ -1,11 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 interface TimerState {
-    value: string;
+    time: string;
 }
 
 const initialState: TimerState = {
-    value: "00:00:00",
+    time: "00:00:00",
 };
 
 let timerId: number | null = null;
@@ -48,17 +48,17 @@ export const scoreSlice = createSlice({
                 isRunning = false;
             }
         },
-        resetTimer: (state) => {
+        resetTimer: (timer) => {
             if (timerId) {
                 clearInterval(timerId);
                 timerId = null;
             }
             isRunning = false;
             elapsedTime = 0;
-            state.value = "00:00:00";
+            timer.time = "00:00:00";
         },
-        setTimerValue: (state, action) => {
-            state.value = action.payload;
+        setTimerValue: (timer, action) => {
+            timer.time = action.payload;
         },
     },
 });

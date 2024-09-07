@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-import dropdownReducer from './slices/dropDownSlice';
+import dropdownReducer from './slices/dropdownSlice';
 import scoreReducer from './slices/scoreSlice';
 import timerReducer from './slices/timerSlice';
 import startReducer from './slices/startSlice';
 import gamerReducer from './slices/gamerSlice';
 import profileReducer from './slices/profileSlice';
 import rulesReducer from './slices/rulesSlice';
-import dataReducer from './slices/dataSlice';
+import dataReducer from './slices/userSlice';
 
 export const store = configureStore({
   reducer: {
