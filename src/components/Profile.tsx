@@ -33,7 +33,7 @@ const Profile: React.FC = () => {
         // }
     }
 
-    const logout = () => {
+    const close = () => {
         if (user.username !== "") {
             if (user.email !== "") {
                 dispatch(hideRules());
@@ -72,8 +72,8 @@ const Profile: React.FC = () => {
                             Highest :-
                             <input className="text-center" type="text" name="h-score" id="h-score" value={score.highest} readOnly />
                         </label>
-                        <button onClick={logout} className="w-1/4 mx-auto text-lg mt-2 px-2 py-1 font-semibold text-gray-900 bg-gray-400 rounded-lg border hover:bg-gray-500">
-                            Logout
+                        <button onClick={close} className="w-1/4 mx-auto text-lg mt-2 px-2 py-1 font-semibold text-gray-900 bg-gray-400 rounded-lg border hover:bg-gray-500">
+                            Close
                         </button>
                     </div>
                 </div>

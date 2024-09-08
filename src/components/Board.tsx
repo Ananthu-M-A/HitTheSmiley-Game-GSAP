@@ -14,7 +14,7 @@ const Board: React.FC = () => {
 
     useEffect(() => {
         const updateMole = () => {
-            const max = 1;
+            const max = 15;
             const randomNum = Math.floor(Math.random() * (max + 1));
             setMolePosition(randomNum);
 

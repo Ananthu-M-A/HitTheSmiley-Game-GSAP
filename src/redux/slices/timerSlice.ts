@@ -30,7 +30,7 @@ function update(dispatch: any) {
 
     const timerValue = `${minutes}:${seconds}:${milliseconds}`;
 
-    if(timerValue === '00:10:00'){
+    if(timerValue === '04:00:00'){
         dispatch(stopTimer());
         dispatch(showGameover());
         dispatch(hideGamer());
