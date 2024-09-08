@@ -1,4 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { showGameover } from './gameoverSlice';
+import { hideGamer } from './gamerSlice';
 
 interface TimerState {
     time: string;
@@ -27,7 +29,14 @@ function update(dispatch: any) {
         .padStart(2, "00");
 
     const timerValue = `${minutes}:${seconds}:${milliseconds}`;
-    dispatch(scoreSlice.actions.setTimerValue(timerValue));
+
+    if(timerValue === '00:10:00'){
+        dispatch(stopTimer());
+        dispatch(showGameover());
+        dispatch(hideGamer());
+    }
+
+    dispatch(setTimerValue(timerValue));
 }
 
 export const scoreSlice = createSlice({

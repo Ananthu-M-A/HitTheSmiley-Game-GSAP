@@ -3,8 +3,7 @@ import Hole from './Hole';
 import Dropdown from './Dropdown';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
-import { showOptions } from '../redux/slices/dropdownSlice';
-import { showProfile } from '../redux/slices/profileSlice';
+import { showLogin } from '../redux/slices/loginSlice';
 
 const Board: React.FC = () => {
     const [molePosition, setMolePosition] = useState<number | null>(null);
@@ -25,8 +24,7 @@ const Board: React.FC = () => {
         };
 
         const moleTimer = setInterval(updateMole, 2000);
-        dispatch(showOptions());
-        dispatch(showProfile());
+        dispatch(showLogin());
 
         return () => clearInterval(moleTimer);
     }, []);
