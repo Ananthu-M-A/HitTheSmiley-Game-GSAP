@@ -1,4 +1,4 @@
-# Hit the Smiley 🎯
+# Hit the Smiley
 
 Welcome to **Hit the Smiley**! This is a fun and interactive game where the goal is to hit the smiley as many times as possible within the given time. Built with modern web technologies, this game is designed to be engaging, responsive, and intuitive.
 
