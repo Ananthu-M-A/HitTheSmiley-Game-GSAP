@@ -1,25 +1,53 @@
 # Hit the Smiley
 
-Welcome to **Hit the Smiley**! This is a fun and interactive game where the goal is to hit the smiley as many times as possible within the given time. Built with modern web technologies, this game is designed to be engaging, responsive, and intuitive.
+![build](https://img.shields.io/badge/build-passing-brightgreen) ![license](https://img.shields.io/badge/license-Proprietary-blue)
+
+## About
+
+A fun, interactive game where players earn points by clicking smileys within a time limit. Built with modern web technologies for engaging, responsive gameplay.
+
+## Table of Contents
+
+- [About](#about)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [License](#license)
+- [Author](#author)
 
 ## Features
 
-- **Interactive Gameplay**: Hit the smileys as they appear on the screen and rack up points!
-- **Real-Time Score Tracking**: Keep track of your high scores and aim to beat your best.
-- **Static Design**: Enjoy seamless gameplay on desktop..
-- **Smooth Animations**: Enjoy smooth and fun animations with GSAP.
+- Interactive gameplay with score tracking.
+- Smooth animations powered by GSAP.
+- Responsive design for desktop.
 
-## Technologies
+## Tech Stack
 
-- **Frontend**: React.js, TypeScript
-- **Game Animations**: Powered by GSAP for fluid and engaging animations.
-- **State Management**: Redux is used for efficiently managing the game state.
+- React.js
+- TypeScript
+- Redux
+- GSAP
+- Tailwind CSS
 
-## How to Play
+## Getting Started
 
-1. **Start the Game**: Enter Click the "Start" button to begin.
-2. **Hit the Smiley**: Click on the smileys as they pop up before they disappear.
-3. **Score Points**: Earn 5 points for each successful hit and lose 1 point for every missed hit.
-4. **Time's Up**: Try to hit as many smileys as possible before time runs out.
+1. Clone the repository: `git clone <repository_url>`
+2. Copy `.env.example` to `.env` and configure environment variables.
+3. Install dependencies: `npm install`
 
-## Get Started...!!!
+## Usage
+
+Start the development server: `npm run dev`
+
+## License
+
+This project is proprietary.  Distribution or use of this software is subject to the restrictions outlined in a separate license agreement.  Contact the author for details.
+
+## Author
+
+**Ananthu M A**
+
+- GitHub: [Ananthu-M-A](https://github.com/Ananthu-M-A)
+- Portfolio: [ananthuma.com](https://ananthuma.com)
+- Email: ananthumapookkad@gmail.com
